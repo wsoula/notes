@@ -1,0 +1,3 @@
+- Check out vimeo for videos on devops days cali
+  - Specifically a video about metrics and build pipeline
+  - i think there are two one is theory and other is implementation
