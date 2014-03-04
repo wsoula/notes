@@ -13,7 +13,8 @@ Intro
 * Tired of having to do the same thing over and over as the build guy
   * created ci-monkey to keep from having to make the same changes over and over (drop yaml file and replace values)
   * enhanced ci-monkey to detect build to keep from having to change repo the same way over and over (change build to actually build, version format)
-
+* Allows you to fix messed up config by just deleting the jenkins folder and running the ci-monkey
+* Allows to change config if evrything is the same it can replace it in the yaml files
 
 
 Jenkins Job Builder
