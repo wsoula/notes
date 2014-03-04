@@ -1,3 +1,6 @@
+- 2013-09-25
+  - Docker
+    - 
 - 2013-06-26
   - Check out vimeo for videos on devops days cali
     - Specifically a video about metrics and build pipeline
