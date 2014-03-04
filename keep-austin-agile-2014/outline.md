@@ -1,5 +1,19 @@
 Intro
 ---
+* Many new repos being created as we move to new platform
+* Tired of broken builds from pull request merges
+  * test early and often
+  * test the merge
+* Problems with jobs not being configured the way I thought they were and trying to figure out how they were changing
+  * Do not care what the configuration of the job is, because it is in source control
+    * Can always get back to working config if someone changes it
+    * No one can manually configure the job
+      * have to continuously tell new people they cannot manually configure the job
+      * send them to documentation about how we use JJB
+* Tired of having to do the same thing over and over as the build guy
+  * created ci-monkey to keep from having to make the same changes over and over (drop yaml file and replace values)
+  * enhanced ci-monkey to detect build to keep from having to change repo the same way over and over (change build to actually build, version format)
+
 
 
 Jenkins Job Builder
@@ -11,14 +25,30 @@ Jenkins Job Builder
   * Good way to learn git and rewriting history
   * Good way to get introduced to gerrit
 * Job config is written in yaml
+* http://ci.openstack.org/jenkins-job-builder/
+* macros for common tasks
+  * pull in common macro file
+  * multiple jobs per file, like the cleanup jobs
+* installation
+  * http://ci.openstack.org/jenkins-job-builder/installation.html
+  * test yaml script
+  * update job
+* configuration
+  * http://ci.openstack.org/jenkins-job-builder/configuration.html
+  * job
+  * job template, like cleanup jobs
 
 
 GitHub Pull Request Builder
 ---
+* pull in presentation from JUC 2013
 
 
 CI Monkey
 ---
+* Crawls github organizations looking for repos without a jenkins folder
+* Lays down a template for the type of repo it is, or a generic one if it cannot determine
+* Replaces values in template
 * Lays down three jobs
   * one to build the HEAD of a repo
     * HEAD on a freshly cheked out repo is the default branch
