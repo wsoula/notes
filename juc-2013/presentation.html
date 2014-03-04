@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+
+  landslide modifications: Adam Zapletal (adamzap@gmail.com)
+                           Nicolas Perriault (nperriault@gmail.com)
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>GitHub Pull Request Builder<br> Workflow</title>
+    <!-- Styles -->
+    
+    <link rel="stylesheet" media="print" href="juc-theme/css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="juc-theme/css/screen.css">
+    
+    
+    <!-- /Styles -->
+    <!-- Javascripts -->
+    
+    <script type="text/javascript" src="juc-theme/js/slides.js"></script>
+    
+    
+    
+    <!-- /Javascripts -->
+</head>
+<body>
+  <div id="blank"></div>
+  <div class="presentation">
+    <div id="current_presenter_notes">
+      <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+      
+      <!-- slide source: 2013-juc.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>GitHub Pull Request Builder<br> Workflow</h1></header>
+            
+            
+            <section><p><br><br><br>
+<center></p>
+<h1>Will Soula</h1>
+<h2>Drilling Info<br><br></h2>
+<h3>http://drillinginfo.com<br></h3>
+<p></center></p>
+<h4>@jenkinsconf</h4></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="2013-juc.md">2013-juc.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              1/7
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 2013-juc.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>GHPRB Workflow</h1></header>
+            
+            
+            <section><ul>
+<li>Where is it in the SDLC?<ul>
+<li>Starts and ends in the dev part of the SDLC</li>
+<li>Small little CI loop</li>
+</ul>
+</li>
+<li>What is the workflow?<ul>
+<li>Create your feature branch and begin work</li>
+<li>Upon first commit or after tests committed open pull request</li>
+<li>Continue pushing to your feature branch as normal</li>
+<li>Profit from CI on a dev branch</li>
+</ul>
+</li>
+<li>How to keep pull request from being accepted too soon<ul>
+<li>Put pull request in review card</li>
+<li>Denote it is in progress in the title</li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="2013-juc.md">2013-juc.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              2/7
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 2013-juc.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>How To Test Codebase</h1></header>
+            
+            
+            <section><ul>
+<li>Monolithic<ul>
+<li>All code in one repo</li>
+<li>Run like normal build</li>
+</ul>
+</li>
+<li>Modules and sub-modules<ul>
+<li>If tests are in same repo<ul>
+<li>Pass sha and refspec</li>
+<li>Run down stream tests against them</li>
+</ul>
+</li>
+<li>If running downstream tests<ul>
+<li>Publish to different location</li>
+<li>Pass to repository manager (bower, ivy, maven, etc)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="2013-juc.md">2013-juc.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              3/7
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 2013-juc.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Beyond Tests</h1></header>
+            
+            
+            <section><ul>
+<li>Deployment of documentation<ul>
+<li>Why<ul>
+<li>People without access to github</li>
+<li>People not tech savvy</li>
+</ul>
+</li>
+<li>How<ul>
+<li>Do doc build</li>
+<li>If it is a pull request figure out the pull request number<ul>
+<li>Change the deploy location</li>
+<li>Deploy to "pr" folder</li>
+</ul>
+</li>
+<li>Deploy as normal</li>
+<li>If last commit was a pull request, delete the pull request deploy</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="2013-juc.md">2013-juc.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              4/7
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 2013-juc.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Beyond Tests</h1></header>
+            
+            
+            <section><ul>
+<li>Customer demos, both internal and external<ul>
+<li>Deploy your latest code continuously so other dev can work on consuming your latest code (dual agile), instead of waiting for one to finish before other starts</li>
+<li>If using monolithic codebase can deploy what is coming next to a site for consumption and feedback on the beta</li>
+</ul>
+</li>
+<li>Comment in pull request buid number deployed in, but only if already commented<ul>
+<li>Get pull request number from last git message</li>
+<li>Use that to comment on pull request using github api</li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="2013-juc.md">2013-juc.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              5/7
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 2013-juc.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Problems</h1></header>
+            
+            
+            <section><ul>
+<li>Self signed ssl<ul>
+<li>GitHub enterprise</li>
+<li>Older Jenkins/git</li>
+<li>Upgrade of git plugins gave better logging</li>
+<li>Solution: java keysigning [1]</li>
+</ul>
+</li>
+<li>Incorrect urls<ul>
+<li>Jenkins -&gt; Manage Jenkins -&gt; Configure System -&gt; Jenkins Location</li>
+<li>Jenkins -&gt; Manage Jenkins -&gt; Configure System -&gt; GHPRB -&gt; Published Jenkins URL</li>
+</ul>
+</li>
+<li>Advanced section in global config<ul>
+<li>Token Field</li>
+<li>Published Jenkins URL</li>
+</ul>
+</li>
+</ul>
+<h4>[1] http://www.erikzaadi.com/2011/09/09/connecting-jenkins-to-self-signed-certificated-servers/</h4></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="2013-juc.md">2013-juc.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              6/7
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 2013-juc.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Thank You To Our Sponsors</h1></header>
+            
+            
+            <section><p><img alt="top" src="juc-theme/images/end-image-top.jpg" /><img alt="bottom" src="juc-theme/images/end-image-bottom.jpg" /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="2013-juc.md">2013-juc.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              7/7
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+      <caption>Table of Contents</caption>
+      
+      <tr id="toc-row-1">
+        <th><a href="#slide1">GitHub Pull Request Builder<br> Workflow</a></th>
+        <td><a href="#slide1">1</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-2">
+        <th><a href="#slide2">GHPRB Workflow</a></th>
+        <td><a href="#slide2">2</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-3">
+        <th><a href="#slide3">How To Test Codebase</a></th>
+        <td><a href="#slide3">3</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-4">
+        <th><a href="#slide4">Beyond Tests</a></th>
+        <td><a href="#slide4">4</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-5">
+        <th><a href="#slide5">Beyond Tests</a></th>
+        <td><a href="#slide5">5</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-6">
+        <th><a href="#slide6">Problems</a></th>
+        <td><a href="#slide6">6</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-7">
+        <th><a href="#slide7">Thank You To Our Sponsors</a></th>
+        <td><a href="#slide7">7</a></td>
+      </tr>
+      
+      
+    </table>
+  </div>
+  
+  <div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+      <caption>Help</caption>
+      <tr>
+        <th>Table of Contents</th>
+        <td>t</td>
+      </tr>
+      <tr>
+        <th>Exposé</th>
+        <td>ESC</td>
+      </tr>
+      <tr>
+        <th>Full screen slides</th>
+        <td>e</td>
+      </tr>
+      <tr>
+        <th>Presenter View</th>
+        <td>p</td>
+      </tr>
+      <tr>
+        <th>Source Files</th>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>Slide Numbers</th>
+        <td>n</td>
+      </tr>
+      <tr>
+        <th>Toggle screen blanking</th>
+        <td>b</td>
+      </tr>
+      <tr>
+        <th>Show/hide slide context</th>
+        <td>c</td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Help</th>
+        <td>h</td>
+      </tr>
+    </table>
+  </div>
+  <script>main()</script>
+</body>
+</html>
