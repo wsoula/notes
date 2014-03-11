@@ -8,34 +8,37 @@
 
 ---
 
-# Intro
+# Issues
 
-* Many new repos being created as we move to new platform
-* Tired of broken builds from pull request merges
-    * test early and often
-    * test the merge
-* Problems with jobs not being configured the way I thought they were and trying to figure out how they were changing
-    * Do not care what the configuration of the job is, because it is in source control
-        * Can always get back to working config if someone changes it
-        * No one can manually configure the job
-            * have to continuously tell new people they cannot manually configure the job
-            * send them to documentation about how we use JJB
+* New repos
+    * many new repos being created as we move to new platform
+    * repeated work configuring jobs
+* Regressions
+    * broken builds from pull request merges
+    * it merges cleanly but does it cause regressions
+* Cowboy Coders
+    * suddenly job starts failing and configuration is different
+    * no way to track configuration changes
 
 ---
 
-# Intro
+# CI Monkey Solutions
 
-* Tired of having to do the same thing over and over as the build guy
-    * created ci-monkey to keep from having to make the same changes over and over (drop yaml file and replace values)
-    * enhanced ci-monkey to detect build to keep from having to change repo the same way over and over (change build to actually build, version format)
-* Allows you to fix messed up config by just deleting the jenkins folder and running the ci-monkey
-* Allows to change config if everything is the same it can replace it in the yaml files
+* New repos - automatically get ci jobs
+    * enhanced to detect build type
+* Regressions - repos automatically get github pull request builds
+    * test the merge
+* Cowbody Coders - configuration is in source control
+    * Allows you to fix messed up config by just deleting the jenkins folder and running the ci-monkey
+    * Allows to change config if everything is the same it can replace it in the yaml files
 
 ---
 
 # Jenkins Job Builder
 
-* Allows the job configuration for a repo to live within the source of that repo
+* Store job configuration in code base
+    * allows to see how job is configured without needing to go to jenkins
+    * can have multiple sets of the same job for different branches
 * Uses python under the covers
 * Opensource and easy to add new plugins to
     * I am an active contributor
@@ -125,6 +128,13 @@
 * Crawls github organizations looking for repos without a jenkins folder
 * Lays down a template for the type of repo it is, or a generic one if it cannot determine
 * Replaces values in template
+* Common tasks
+    * clone from git
+    * comment on pull requests
+    * github url
+    * triggering main build from push
+    * triggering pull request build on poll
+    * put name of branch in build name
 
 ---
 
