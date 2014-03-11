@@ -40,15 +40,20 @@
     * allows to see how job is configured without needing to go to jenkins
     * can have multiple sets of the same job for different branches
 * Uses python under the covers
+* Job config is written in yaml
+
+---
+
+# Jenkins Job Builder
+
 * Opensource and easy to add new plugins to
     * I am an active contributor
-    * Good way to learn git and rewriting history
-    * Good way to get introduced to gerrit
-* Job config is written in yaml
-* http://ci.openstack.org/jenkins-job-builder/
+    * Learn git and rewriting history
+    * Get introduced to gerrit
 * macros for common tasks
     * pull in common macro file
     * multiple jobs per file, like the cleanup jobs
+* http://ci.openstack.org/jenkins-job-builder/
 
 ---
 
@@ -62,6 +67,17 @@
     * http://ci.openstack.org/jenkins-job-builder/configuration.html
     * job
     * job template, like cleanup jobs
+
+---
+
+# Jenkins Job Builder
+
+* No one can manually configure a job
+* jjb-init job
+    * takes branch, repo, and org as parameters
+    * runs JJB against jenkins folder
+* clean cache
+* run every weekend
 
 ---
 
@@ -132,6 +148,7 @@
     * clone from git
     * comment on pull requests
     * github url
+    * creating github webhook
     * triggering main build from push
     * triggering pull request build on poll
     * put name of branch in build name
