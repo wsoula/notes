@@ -34,8 +34,9 @@
 
 ---
 
-# Jenkins Job Builder
+# What is Jenkins Job Builder
 
+* opensource Jenkins job configurer created and used by openstack
 * Store job configuration in code base
     * allows to see how job is configured without needing to go to jenkins
     * can have multiple sets of the same job for different branches
@@ -44,7 +45,7 @@
 
 ---
 
-# Jenkins Job Builder
+# Features of Jenkins Job Builder
 
 * Opensource and easy to add new plugins to
     * I am an active contributor
@@ -53,11 +54,14 @@
 * macros for common tasks
     * pull in common macro file
     * multiple jobs per file, like the cleanup jobs
+* test yaml created
+    * can verify there are no syntax errors
+    * aids in adding new plugin
 * http://ci.openstack.org/jenkins-job-builder/
 
 ---
 
-# Jenkins Job Builder
+# How to use Jenkins Job Builder
 
 * installation
     * http://ci.openstack.org/jenkins-job-builder/installation.html
@@ -67,17 +71,24 @@
     * http://ci.openstack.org/jenkins-job-builder/configuration.html
     * job
     * job template, like cleanup jobs
+* commands
+    * jenkins-jobs update jenkins/
+    * jenkins-jobs test jenkins/ -o output
 
 ---
 
-# Jenkins Job Builder
+# How DI uses Jenkins Job Builder
 
 * No one can manually configure a job
+    * have to refer new employees to documentation about JJB
+    * few people have manual configure ability
 * jjb-init job
     * takes branch, repo, and org as parameters
     * runs JJB against jenkins folder
-* clean cache
-* run every weekend
+* clean cache before running JJB
+* run every weekend in case configuration somehow got changed
+    * few trusted people mess up
+    * job left broken from jjb-init job
 
 ---
 
