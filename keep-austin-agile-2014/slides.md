@@ -24,71 +24,13 @@
 
 # CI Monkey Solutions
 
-* New repos - automatically get ci jobs
+* New repos - automatically get ci jobs (CI Monkey)
     * enhanced to detect build type
-* Regressions - repos automatically get github pull request builds
+* Regressions - repos automatically get github pull request builds (GHPRB)
     * test the merge
-* Cowbody Coders - configuration is in source control
+* Cowbody Coders - configuration is in source control (JJB)
     * Allows you to fix messed up config by just deleting the jenkins folder and running the ci-monkey
     * Allows to change config if everything is the same it can replace it in the yaml files
-
----
-
-# What is Jenkins Job Builder
-
-* opensource Jenkins job configurer created and used by openstack
-* Store job configuration in code base
-    * allows to see how job is configured without needing to go to jenkins
-    * can have multiple sets of the same job for different branches
-* Uses python under the covers
-* Job config is written in yaml
-
----
-
-# Features of Jenkins Job Builder
-
-* Opensource and easy to add new plugins to
-    * I am an active contributor
-    * Learn git and rewriting history
-    * Get introduced to gerrit
-* macros for common tasks
-    * pull in common macro file
-    * multiple jobs per file, like the cleanup jobs
-* test yaml created
-    * can verify there are no syntax errors
-    * aids in adding new plugin
-* http://ci.openstack.org/jenkins-job-builder/
-
----
-
-# How to use Jenkins Job Builder
-
-* installation
-    * http://ci.openstack.org/jenkins-job-builder/installation.html
-    * test yaml script
-    * update job
-* configuration
-    * http://ci.openstack.org/jenkins-job-builder/configuration.html
-    * job
-    * job template, like cleanup jobs
-* commands
-    * jenkins-jobs update jenkins/
-    * jenkins-jobs test jenkins/ -o output
-
----
-
-# How DI uses Jenkins Job Builder
-
-* No one can manually configure a job
-    * have to refer new employees to documentation about JJB
-    * few people have manual configure ability
-* jjb-init job
-    * takes branch, repo, and org as parameters
-    * runs JJB against jenkins folder
-* clean cache before running JJB
-* run every weekend in case configuration somehow got changed
-    * few trusted people mess up
-    * job left broken from jjb-init job
 
 ---
 
@@ -147,6 +89,183 @@
 - Comment in pull request buid number deployed in, but only if already commented
     - Get pull request number from last git message
     - Use that to comment on pull request using github api
+
+---
+
+# What is Jenkins Job Builder
+
+* Opensource Jenkins job configurer created and used by openstack
+* Store job configuration in code base
+    * allows to see how job is configured without needing to go to jenkins
+    * can have multiple sets of the same job for different branches
+* Uses python under the covers
+* Job config is written in yaml
+
+---
+
+# Features of Jenkins Job Builder
+
+* Opensource and easy to add new plugins to
+    * I am an active contributor
+    * Learn git and rewriting history
+    * Get introduced to gerrit
+* Macros for common tasks
+    * pull in common macro file
+    * multiple jobs per file, like the cleanup jobs
+* Test yaml created
+    * can verify there are no syntax errors
+    * aids in adding new plugin
+* Templates for common jobs
+    * like macros but for entire jobs
+    * multiple jobs per file
+
+---
+
+# How to use Jenkins Job Builder
+
+Installation:
+
+* install python
+* clone from github
+* sudo python setup.py install
+
+Configuration (/etc/jenkins_jobs/jenkins_jobs.ini):
+
+    !properties
+    [jenkins]
+    user=USERNAME
+    password=PASSWORD
+    url=JENKINS_URL
+    ignore_cache=IGNORE_CACHE_FLAG
+
+---
+
+# Job Configuration with JJB
+
+Job
+
+    !yaml
+    - job
+        name: test-job
+        description: A test job of JJB
+        project-type: freestyle
+        properties:
+          - github:
+              url: https://git.drillinginfo.com/DIGlobal/map-widget/
+        scm:
+          - git:
+              url: ssh://git@git.drillinginfo.com/DIGlobal/map-widget.git
+              branches:
+                - "HEAD"
+              wipe-workspace: true
+              browser: githubweb
+              browser-url: https://git.drillinginfo.com/DIGlobal/map-widget/
+              git-tool: System Default Git
+        triggers:
+          - github
+          - pollscm: ''
+        builders:
+          - shell: |
+                   echo Hello World
+        wrappers:
+          - inject:
+              script-content: echo REAL_BRANCH=`git rev-parse HEAD | git branch --contains | grep -E -v '^(\*)'`>branch.prop
+          - build-name:
+              name: ${PROPFILE,file="branch.prop",property="REAL_BRANCH"}-#$BUILD_NUMBER
+
+---
+
+# Macro Use with JJB
+
+Macro
+
+    !yaml
+    - builder:
+        name: builder-macro
+        builders:
+            - shell: |
+                     echo "You passed {task}"
+    - job
+        name: test-macroA
+        description: A test of echoing foo
+        project-type: freestyle
+        builders:
+          - builder-macro:
+              task: foo
+    - job
+        name: test-macroB
+        description: A test of echoing bar
+        project-type: freestyle
+        builders:
+          - builder-macro:
+              task: bar
+
+---
+
+# Job Template Use with JJB
+
+Job Template, like macro but for entire job:
+
+    !yaml
+    - builder:
+        name: ant-build
+        builders:
+            ant: "{targets}"
+    - job-template:
+        name: "{name}-build"
+        description: Build the {name} project
+        project-type: freestyle
+        builders:
+          - ant-build:
+              targets: "test"
+    - job-template:
+        name: "{name}-jjb"
+        description: Build the {name} gradle build
+        project-type: freestyle
+        builders:
+          - ant-build:
+              targets: "jjb"
+                    
+    - project:
+        name: testAnt
+        jobs:
+          - '{name}-build'
+          - '{name}-jjb'
+
+---
+
+# How to use JJB
+
+Commands
+
+* jenkins-jobs update jenki`ns/
+* jenkins-jobs test jenkins/ -o output
+* update Jenkins Job Builder itself
+
+---
+
+# Full YAML Using Job Templates
+
+    !yaml
+    - builder:
+        name: builder-macro
+        builders:
+            - aniscolor
+
+---
+
+# How DI uses Jenkins Job Builder
+
+* No one can manually configure a job
+    * have to refer new employees to documentation about JJB
+    * few people have manual configure ability
+* jjb-init job
+    * takes branch, repo, and org as parameters
+    * runs JJB against jenkins folder
+* clean cache before running JJB
+* run every weekend in case configuration somehow got changed
+    * few trusted people mess up
+    * job left broken from jjb-init job
 
 ---
 
