@@ -98,7 +98,7 @@
 * Store job configuration in code base
     * allows to see how job is configured without needing to go to jenkins
     * can have multiple sets of the same job for different branches
-* Uses python under the covers
+* Uses Python under the covers
 * Job config is written in yaml
 
 ---
@@ -108,10 +108,10 @@
 * Opensource and easy to add new plugins to
     * I am an active contributor
     * Learn git and rewriting history
-    * Get introduced to gerrit
+    * Get introduced to Gerrit
 * Macros for common tasks
     * pull in common macro file
-    * multiple jobs per file, like the cleanup jobs
+    * multiple jobs per file 
 * Test yaml created
     * can verify there are no syntax errors
     * aids in adding new plugin
@@ -238,21 +238,12 @@ Job Template, like macro but for entire job:
 
 Commands
 
-* jenkins-jobs update jenki`ns/
+* jenkins-jobs update jenkins/
 * jenkins-jobs test jenkins/ -o output
 * update Jenkins Job Builder itself
 
 ---
 
-# Full YAML Using Job Templates
-
-    !yaml
-    - builder:
-        name: builder-macro
-        builders:
-            - aniscolor
-
----
 
 # How DI uses Jenkins Job Builder
 
@@ -303,33 +294,3 @@ Commands
 ---
 
 # Demo
-
-* Start with brand new machine with no jenkins or JJB on it
-* Install JJB and download jenkins and start jenkins
-* Create jjb-init job with jenkins job builder
-* Use jjb-init to create ci-monkey
-* Create play repo with play create and push to github
-    * Run ci-monkey and see jobs created
-* Create cookbook repo and push to github
-    * Run ci-monkey and see jobs created
-* Create grunt repo and push to github
-    * Run ci-monkey and see jobs created
-* Create ant build and push ot github
-    * Run ci-monkey and see jobs created but placeholder build
-
----
-
-# Demo
-
-* Open pull request with changes to code that causes test failures
-    * See pull request run and comment with test results
-    * Fix code to not fail tests and push to feature branch and see tests pass
-* Open pull request with changes to documentation
-    * See pull request run and publish to pull request site
-* Open pull request with changes to code
-    * See pull request run and publish changes to pull request site, or ability to dl executable
-* Open pull request with change to JJB
-    * See JJB change in configuration
-    * rerun JJB job to set configuration back to original setting
-* Straight commit change to JJB to repo
-    * See JJB job run and reconfigure job then run the main build
