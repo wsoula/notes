@@ -1,5 +1,6 @@
 # CI Monkey
 <br><br><br>
+![right](kaa-theme/images/intro-slide3.jpg)
 <center>
 #Will Soula
 ##Drilling Info<br><br>
@@ -107,8 +108,7 @@
 
 * Opensource and easy to add new plugins to
     * I am an active contributor
-    * Learn git and rewriting history
-    * Get introduced to Gerrit
+    * Learn Git, Gerrit and rewriting history
 * Macros for common tasks
     * pull in common macro file
     * multiple jobs per file 
@@ -289,7 +289,7 @@ Commands
         * Run JJB if changing jenkins folder
     * one to run JJB
         * pull request runs this too but the change
-        * After this build runs, run the main build to make sure config changes did not break build
+        * Afterwards, main build runs and verifies config changes
 
 ---
 
