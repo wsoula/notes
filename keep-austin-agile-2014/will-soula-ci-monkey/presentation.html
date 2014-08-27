@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+
+  landslide modifications: Adam Zapletal (adamzap@gmail.com)
+                           Nicolas Perriault (nperriault@gmail.com)
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>CI Monkey</title>
+    <!-- Styles -->
+    
+    <link rel="stylesheet" media="print" href="theme/css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="theme/css/screen.css">
+    
+    
+    <!-- /Styles -->
+    <!-- Javascripts -->
+    
+    <script type="text/javascript" src="theme/js/slides.js"></script>
+    
+    
+    
+    <!-- /Javascripts -->
+</head>
+<body>
+  <div id="blank"></div>
+  <div class="presentation">
+    <div id="current_presenter_notes">
+      <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>CI Monkey</h1></header>
+            
+            
+            <section><p><br><br><br>
+<img alt="right" src="kaa-theme/images/intro-slide3.jpg" />
+<center></p>
+<h1>Will Soula</h1>
+<h2>Drilling Info<br><br></h2>
+<h3>http://www.drillinginfo.com<br></h3>
+<p></center></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              1/18
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Issues</h1></header>
+            
+            
+            <section><ul>
+<li>New repos<ul>
+<li>many new repos being created as we move to new platform</li>
+<li>repeated work configuring jobs</li>
+</ul>
+</li>
+<li>Regressions<ul>
+<li>broken builds from pull request merges</li>
+<li>it merges cleanly but does it cause regressions</li>
+</ul>
+</li>
+<li>Cowboy Coders<ul>
+<li>suddenly job starts failing and configuration is different</li>
+<li>no way to track configuration changes</li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              2/18
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>CI Monkey Solutions</h1></header>
+            
+            
+            <section><ul>
+<li>New repos - automatically get ci jobs (CI Monkey)<ul>
+<li>enhanced to detect build type</li>
+</ul>
+</li>
+<li>Regressions - repos automatically get github pull request builds (GHPRB)<ul>
+<li>test the merge</li>
+</ul>
+</li>
+<li>Cowbody Coders - configuration is in source control (JJB)<ul>
+<li>Allows you to fix messed up config by just deleting the jenkins folder and running the ci-monkey</li>
+<li>Allows to change config if everything is the same it can replace it in the yaml files</li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              3/18
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>GHPRB Workflow</h1></header>
+            
+            
+            <section><ul>
+<li>Where is it in the SDLC?<ul>
+<li>Starts and ends in the dev part of the SDLC</li>
+<li>Small little CI loop</li>
+</ul>
+</li>
+<li>What is the workflow?<ul>
+<li>Create your feature branch and begin work</li>
+<li>Upon first commit or after tests committed open pull request</li>
+<li>Continue pushing to your feature branch as normal</li>
+<li>Profit from CI on a dev branch</li>
+</ul>
+</li>
+<li>How to keep pull request from being accepted too soon<ul>
+<li>Put pull request in review card</li>
+<li>Denote it is in progress in the title</li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              4/18
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>How To Test Codebase</h1></header>
+            
+            
+            <section><ul>
+<li>Monolithic<ul>
+<li>All code in one repo</li>
+<li>Run like normal build</li>
+</ul>
+</li>
+<li>Modules and sub-modules<ul>
+<li>If tests are in same repo<ul>
+<li>Pass sha and refspec</li>
+<li>Run down stream tests against them</li>
+</ul>
+</li>
+<li>If running downstream tests<ul>
+<li>Publish to different location</li>
+<li>Pass to repository manager (bower, ivy, maven, etc)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              5/18
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Beyond Tests</h1></header>
+            
+            
+            <section><ul>
+<li>Deployment of documentation<ul>
+<li>Why<ul>
+<li>People without access to github</li>
+<li>People not tech savvy</li>
+</ul>
+</li>
+<li>How<ul>
+<li>Do doc build</li>
+<li>If it is a pull request figure out the pull request number<ul>
+<li>Change the deploy location</li>
+<li>Deploy to "pr" folder</li>
+</ul>
+</li>
+<li>Deploy as normal</li>
+<li>If last commit was a pull request, delete the pull request deploy</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              6/18
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Beyond Tests</h1></header>
+            
+            
+            <section><ul>
+<li>Customer demos, both internal and external<ul>
+<li>Deploy your latest code continuously so other dev can work on consuming your latest code (dual agile), instead of waiting for one to finish before other starts</li>
+<li>If using monolithic codebase can deploy what is coming next to a site for consumption and feedback on the beta</li>
+</ul>
+</li>
+<li>Comment in pull request buid number deployed in, but only if already commented<ul>
+<li>Get pull request number from last git message</li>
+<li>Use that to comment on pull request using github api</li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              7/18
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>What is Jenkins Job Builder</h1></header>
+            
+            
+            <section><ul>
+<li>Opensource Jenkins job configurer created and used by openstack</li>
+<li>Store job configuration in code base<ul>
+<li>allows to see how job is configured without needing to go to jenkins</li>
+<li>can have multiple sets of the same job for different branches</li>
+</ul>
+</li>
+<li>Uses Python under the covers</li>
+<li>Job config is written in yaml</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              8/18
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Features of Jenkins Job Builder</h1></header>
+            
+            
+            <section><ul>
+<li>Opensource and easy to add new plugins to<ul>
+<li>I am an active contributor</li>
+<li>Learn Git, Gerrit and rewriting history</li>
+</ul>
+</li>
+<li>Macros for common tasks<ul>
+<li>pull in common macro file</li>
+<li>multiple jobs per file </li>
+</ul>
+</li>
+<li>Test yaml created<ul>
+<li>can verify there are no syntax errors</li>
+<li>aids in adding new plugin</li>
+</ul>
+</li>
+<li>Templates for common jobs<ul>
+<li>like macros but for entire jobs</li>
+<li>multiple jobs per file</li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              9/18
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>How to use Jenkins Job Builder</h1></header>
+            
+            
+            <section><p>Installation:</p>
+<ul>
+<li>install python</li>
+<li>clone from github</li>
+<li>sudo python setup.py install</li>
+</ul>
+<p>Configuration (/etc/jenkins_jobs/jenkins_jobs.ini):</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="err">[jenkins]</span>
+<span class="lineno">2</span> <span class="na">user</span><span class="o">=</span><span class="s">USERNAME</span>
+<span class="lineno">3</span> <span class="na">password</span><span class="o">=</span><span class="s">PASSWORD</span>
+<span class="lineno">4</span> <span class="na">url</span><span class="o">=</span><span class="s">JENKINS_URL</span>
+<span class="lineno">5</span> <span class="na">ignore_cache</span><span class="o">=</span><span class="s">IGNORE_CACHE_FLAG</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              10/18
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Job Configuration with JJB</h1></header>
+            
+            
+            <section><p>Job</p>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">job</span>
+<span class="lineno"> 2</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">test-job</span>
+<span class="lineno"> 3</span>     <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">A test job of JJB</span>
+<span class="lineno"> 4</span>     <span class="l-Scalar-Plain">project-type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">freestyle</span>
+<span class="lineno"> 5</span>     <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+<span class="lineno"> 6</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">github</span><span class="p-Indicator">:</span>
+<span class="lineno"> 7</span>           <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">https://git.drillinginfo.com/DIGlobal/map-widget/</span>
+<span class="lineno"> 8</span>   <span class="-Error">  </span><span class="l-Scalar-Plain">scm</span><span class="p-Indicator">:</span>
+<span class="lineno"> 9</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">git</span><span class="p-Indicator">:</span>
+<span class="lineno">10</span>           <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ssh://git@git.drillinginfo.com/DIGlobal/map-widget.git</span>
+<span class="lineno">11</span>           <span class="l-Scalar-Plain">branches</span><span class="p-Indicator">:</span>
+<span class="lineno">12</span>             <span class="p-Indicator">-</span> <span class="s">&quot;HEAD&quot;</span>
+<span class="lineno">13</span>           <span class="l-Scalar-Plain">wipe-workspace</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+<span class="lineno">14</span>           <span class="l-Scalar-Plain">browser</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">githubweb</span>
+<span class="lineno">15</span>           <span class="l-Scalar-Plain">browser-url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">https://git.drillinginfo.com/DIGlobal/map-widget/</span>
+<span class="lineno">16</span>           <span class="l-Scalar-Plain">git-tool</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">System Default Git</span>
+<span class="lineno">17</span>     <span class="l-Scalar-Plain">triggers</span><span class="p-Indicator">:</span>
+<span class="lineno">18</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">github</span>
+<span class="lineno">19</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">pollscm</span><span class="p-Indicator">:</span> <span class="s">&#39;&#39;</span>
+<span class="lineno">20</span>     <span class="l-Scalar-Plain">builders</span><span class="p-Indicator">:</span>
+<span class="lineno">21</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="p-Indicator">|</span>
+<span class="lineno">22</span>                <span class="no">echo Hello World</span>
+<span class="lineno">23</span>     <span class="l-Scalar-Plain">wrappers</span><span class="p-Indicator">:</span>
+<span class="lineno">24</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">inject</span><span class="p-Indicator">:</span>
+<span class="lineno">25</span>           <span class="l-Scalar-Plain">script-content</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">echo REAL_BRANCH=`git rev-parse HEAD | git branch --contains | grep -E -v &#39;^(\*)&#39;`&gt;branch.prop</span>
+<span class="lineno">26</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">build-name</span><span class="p-Indicator">:</span>
+<span class="lineno">27</span>           <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${PROPFILE,file=&quot;branch.prop&quot;,property=&quot;REAL_BRANCH&quot;}-#$BUILD_NUMBER</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/18
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Macro Use with JJB</h1></header>
+            
+            
+            <section><p>Macro</p>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">builder</span><span class="p-Indicator">:</span>
+<span class="lineno"> 2</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">builder-macro</span>
+<span class="lineno"> 3</span>     <span class="l-Scalar-Plain">builders</span><span class="p-Indicator">:</span>
+<span class="lineno"> 4</span>         <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="p-Indicator">|</span>
+<span class="lineno"> 5</span>                  <span class="no">echo &quot;You passed {task}&quot;</span>
+<span class="lineno"> 6</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">job</span>
+<span class="lineno"> 7</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">test-macroA</span>
+<span class="lineno"> 8</span>     <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">A test of echoing foo</span>
+<span class="lineno"> 9</span>     <span class="l-Scalar-Plain">project-type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">freestyle</span>
+<span class="lineno">10</span>     <span class="l-Scalar-Plain">builders</span><span class="p-Indicator">:</span>
+<span class="lineno">11</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">builder-macro</span><span class="p-Indicator">:</span>
+<span class="lineno">12</span>           <span class="l-Scalar-Plain">task</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">foo</span>
+<span class="lineno">13</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">job</span>
+<span class="lineno">14</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">test-macroB</span>
+<span class="lineno">15</span>     <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">A test of echoing bar</span>
+<span class="lineno">16</span>     <span class="l-Scalar-Plain">project-type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">freestyle</span>
+<span class="lineno">17</span>     <span class="l-Scalar-Plain">builders</span><span class="p-Indicator">:</span>
+<span class="lineno">18</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">builder-macro</span><span class="p-Indicator">:</span>
+<span class="lineno">19</span>           <span class="l-Scalar-Plain">task</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">bar</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              12/18
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Job Template Use with JJB</h1></header>
+            
+            
+            <section><p>Job Template, like macro but for entire job:</p>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">builder</span><span class="p-Indicator">:</span>
+<span class="lineno"> 2</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ant-build</span>
+<span class="lineno"> 3</span>     <span class="l-Scalar-Plain">builders</span><span class="p-Indicator">:</span>
+<span class="lineno"> 4</span>         <span class="l-Scalar-Plain">ant</span><span class="p-Indicator">:</span> <span class="s">&quot;{targets}&quot;</span>
+<span class="lineno"> 5</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">job-template</span><span class="p-Indicator">:</span>
+<span class="lineno"> 6</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&quot;{name}-build&quot;</span>
+<span class="lineno"> 7</span>     <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Build the {name} project</span>
+<span class="lineno"> 8</span>     <span class="l-Scalar-Plain">project-type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">freestyle</span>
+<span class="lineno"> 9</span>     <span class="l-Scalar-Plain">builders</span><span class="p-Indicator">:</span>
+<span class="lineno">10</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">ant-build</span><span class="p-Indicator">:</span>
+<span class="lineno">11</span>           <span class="l-Scalar-Plain">targets</span><span class="p-Indicator">:</span> <span class="s">&quot;test&quot;</span>
+<span class="lineno">12</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">job-template</span><span class="p-Indicator">:</span>
+<span class="lineno">13</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&quot;{name}-jjb&quot;</span>
+<span class="lineno">14</span>     <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Build the {name} gradle build</span>
+<span class="lineno">15</span>     <span class="l-Scalar-Plain">project-type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">freestyle</span>
+<span class="lineno">16</span>     <span class="l-Scalar-Plain">builders</span><span class="p-Indicator">:</span>
+<span class="lineno">17</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">ant-build</span><span class="p-Indicator">:</span>
+<span class="lineno">18</span>           <span class="l-Scalar-Plain">targets</span><span class="p-Indicator">:</span> <span class="s">&quot;jjb&quot;</span>
+<span class="lineno">19</span> 
+<span class="lineno">20</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">project</span><span class="p-Indicator">:</span>
+<span class="lineno">21</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">testAnt</span>
+<span class="lineno">22</span>     <span class="l-Scalar-Plain">jobs</span><span class="p-Indicator">:</span>
+<span class="lineno">23</span>       <span class="p-Indicator">-</span> <span class="s">&#39;{name}-build&#39;</span>
+<span class="lineno">24</span>       <span class="p-Indicator">-</span> <span class="s">&#39;{name}-jjb&#39;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              13/18
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>How to use JJB</h1></header>
+            
+            
+            <section><p>Commands</p>
+<ul>
+<li>jenkins-jobs update jenkins/</li>
+<li>jenkins-jobs test jenkins/ -o output</li>
+<li>update Jenkins Job Builder itself</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              14/18
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>How DI uses Jenkins Job Builder</h1></header>
+            
+            
+            <section><ul>
+<li>No one can manually configure a job<ul>
+<li>have to refer new employees to documentation about JJB</li>
+<li>few people have manual configure ability</li>
+</ul>
+</li>
+<li>jjb-init job<ul>
+<li>takes branch, repo, and org as parameters</li>
+<li>runs JJB against jenkins folder</li>
+</ul>
+</li>
+<li>clean cache before running JJB</li>
+<li>run every weekend in case configuration somehow got changed<ul>
+<li>few trusted people mess up</li>
+<li>job left broken from jjb-init job</li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              15/18
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>CI Monkey</h1></header>
+            
+            
+            <section><ul>
+<li>Crawls github organizations looking for repos without a jenkins folder</li>
+<li>Lays down a template for the type of repo it is, or a generic one if it cannot determine</li>
+<li>Replaces values in template</li>
+<li>Common tasks<ul>
+<li>clone from git</li>
+<li>comment on pull requests</li>
+<li>github url</li>
+<li>creating github webhook</li>
+<li>triggering main build from push</li>
+<li>triggering pull request build on poll</li>
+<li>put name of branch in build name</li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              16/18
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>CI Monkey</h1></header>
+            
+            
+            <section><ul>
+<li>Lays down three jobs<ul>
+<li>one to build the HEAD of a repo<ul>
+<li>HEAD on a freshly cheked out repo is the default branch</li>
+<li>Always wipe the workspace on clone</li>
+<li>Allows to change branch being built by changing the default branch in github and wiping the job workspace</li>
+</ul>
+</li>
+<li>one to build pull requests<ul>
+<li>Can run just tests</li>
+<li>Could publish for further testing of pull request</li>
+<li>Run JJB if changing jenkins folder</li>
+</ul>
+</li>
+<li>one to run JJB<ul>
+<li>pull request runs this too but the change</li>
+<li>Afterwards, main build runs and verifies config changes</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              17/18
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Demo</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              18/18
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+      <caption>Table of Contents</caption>
+      
+      <tr id="toc-row-1">
+        <th><a href="#slide1">CI Monkey</a></th>
+        <td><a href="#slide1">1</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-2">
+        <th><a href="#slide2">Issues</a></th>
+        <td><a href="#slide2">2</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-3">
+        <th><a href="#slide3">CI Monkey Solutions</a></th>
+        <td><a href="#slide3">3</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-4">
+        <th><a href="#slide4">GHPRB Workflow</a></th>
+        <td><a href="#slide4">4</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-5">
+        <th><a href="#slide5">How To Test Codebase</a></th>
+        <td><a href="#slide5">5</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-6">
+        <th><a href="#slide6">Beyond Tests</a></th>
+        <td><a href="#slide6">6</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-7">
+        <th><a href="#slide7">Beyond Tests</a></th>
+        <td><a href="#slide7">7</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-8">
+        <th><a href="#slide8">What is Jenkins Job Builder</a></th>
+        <td><a href="#slide8">8</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-9">
+        <th><a href="#slide9">Features of Jenkins Job Builder</a></th>
+        <td><a href="#slide9">9</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-10">
+        <th><a href="#slide10">How to use Jenkins Job Builder</a></th>
+        <td><a href="#slide10">10</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-11">
+        <th><a href="#slide11">Job Configuration with JJB</a></th>
+        <td><a href="#slide11">11</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-12">
+        <th><a href="#slide12">Macro Use with JJB</a></th>
+        <td><a href="#slide12">12</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-13">
+        <th><a href="#slide13">Job Template Use with JJB</a></th>
+        <td><a href="#slide13">13</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-14">
+        <th><a href="#slide14">How to use JJB</a></th>
+        <td><a href="#slide14">14</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-15">
+        <th><a href="#slide15">How DI uses Jenkins Job Builder</a></th>
+        <td><a href="#slide15">15</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-16">
+        <th><a href="#slide16">CI Monkey</a></th>
+        <td><a href="#slide16">16</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-17">
+        <th><a href="#slide17">CI Monkey</a></th>
+        <td><a href="#slide17">17</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-18">
+        <th><a href="#slide18">Demo</a></th>
+        <td><a href="#slide18">18</a></td>
+      </tr>
+      
+      
+    </table>
+  </div>
+  
+  <div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+      <caption>Help</caption>
+      <tr>
+        <th>Table of Contents</th>
+        <td>t</td>
+      </tr>
+      <tr>
+        <th>Exposé</th>
+        <td>ESC</td>
+      </tr>
+      <tr>
+        <th>Full screen slides</th>
+        <td>e</td>
+      </tr>
+      <tr>
+        <th>Presenter View</th>
+        <td>p</td>
+      </tr>
+      <tr>
+        <th>Source Files</th>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>Slide Numbers</th>
+        <td>n</td>
+      </tr>
+      <tr>
+        <th>Toggle screen blanking</th>
+        <td>b</td>
+      </tr>
+      <tr>
+        <th>Show/hide slide context</th>
+        <td>c</td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Help</th>
+        <td>h</td>
+      </tr>
+    </table>
+  </div>
+  <script>main()</script>
+</body>
+</html>
