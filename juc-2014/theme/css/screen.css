@@ -42,12 +42,12 @@ div.slide {
   position: absolute;
   overflow: hidden;
   width: 900px;
-  height: 700px;
-  margin-top: -350px;
+  height: 650px;
+  margin-top: -325px;
   margin-left: -400px;
   left: 50%;
   top: 50%;
-  background:url('../images/di_background2.jpg');
+  background:url('../images/juc_background-smaller.jpg');
   -webkit-transition: margin 0.25s ease-in-out;
   -moz-transition: margin 0.25s ease-in-out;
   -o-transition: margin 0.25s ease-in-out;

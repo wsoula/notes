@@ -1,10 +1,13 @@
-# CI Monkey
+#<br>
 <br><br><br>
-![right](kaa-theme/images/intro-slide3.jpg)
 <center>
+#![right](theme/images/juc_title.jpg)
+<br>
 #Will Soula
-##Drilling Info<br><br>
+##Drilling Info
 ###http://www.drillinginfo.com<br>
+<br>
+###October 23, 2014
 </center>
 
 ---
