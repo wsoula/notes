@@ -294,3 +294,6 @@ Commands
 ---
 
 # Demo
+
+---
+#![right](theme/images/thank_you-smaller.jpg)
