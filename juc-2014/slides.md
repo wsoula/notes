@@ -6,6 +6,7 @@
 #Will Soula
 ##Drilling Info
 ###http://www.drillinginfo.com<br>
+###https://github.com/drillinginfo/ci-monkey<br>
 <br>
 ###October 23, 2014
 </center>
@@ -115,12 +116,12 @@
 * Macros for common tasks
     * pull in common macro file
     * multiple jobs per file 
-* Test yaml created
-    * can verify there are no syntax errors
-    * aids in adding new plugin
 * Templates for common jobs
     * like macros but for entire jobs
     * multiple jobs per file
+* Test yaml created
+    * can verify there are no syntax errors
+    * aids in adding new plugin
 
 ---
 
@@ -143,6 +144,16 @@ Configuration (/etc/jenkins_jobs/jenkins_jobs.ini):
 
 ---
 
+# How to use JJB
+
+Commands
+
+* jenkins-jobs update jenkins/
+* jenkins-jobs test jenkins/ -o output
+* update Jenkins Job Builder itself
+
+---
+
 # Job Configuration with JJB
 
 Job
@@ -155,14 +166,21 @@ Job
         properties:
           - github:
               url: https://git.drillinginfo.com/DIGlobal/map-widget/
+          - inject:
+              script-content: |
+                          #!/bin/bash -ex
+                          {{ rm -rf /jenkins/workspace/$JOB_NAME || true; }}
+                          mkdir -p /jenkins/workspace/$JOB_NAME
+                          echo default_branch=`curl -s -k -H "Authorization: token [token]" "https://[github_url]/repos/{org}/{repo}" | grep -om 1 -e default_branch\\":\\ \\"[A-Za-z0-9\._-]\\\+ | sed s/default_branch\\":\\ \\"//g` > /jenkins/workspace/$JOB_NAME/properties.prop
+              properties-file: "/jenkins/workspace/$JOB_NAME/properties.prop"
         scm:
           - git:
-              url: ssh://git@git.drillinginfo.com/DIGlobal/map-widget.git
+              url: ssh://[github_url]/DIGlobal/map-widget.git
               branches:
                 - "$default_branch"
               wipe-workspace: true
               browser: githubweb
-              browser-url: https://git.drillinginfo.com/DIGlobal/map-widget/
+              browser-url: https://[github_url]/DIGlobal/map-widget/
               git-tool: System Default Git
         triggers:
           - github
@@ -184,22 +202,25 @@ Macro
     - builder:
         name: builder-macro
         builders:
-            - shell: |
-                     echo "You passed {task}"
+          - ant:
+              targets: "{task}"
+              properties:
+                 failonerror: false
+              ant-name: "Ant 1.6" 
     - job
         name: test-macroA
-        description: A test of echoing foo
+        description: Run the integration tests
         project-type: freestyle
         builders:
           - builder-macro:
-              task: foo
+              task: testi
     - job
         name: test-macroB
-        description: A test of echoing bar
+        description: Run the unit tests
         project-type: freestyle
         builders:
           - builder-macro:
-              task: bar
+              task: testu
 
 ---
 
@@ -209,23 +230,30 @@ Job Template, like macro but for entire job:
 
     !yaml
     - builder:
-        name: ant-build
+        name: ant-build-macro
         builders:
-            ant: "{targets}"
+          -  ant: "{targets}"
+    - wrapper:
+        name: build-name-macro
+        wrappers:
+          - build-name:
+              name: ${ENV,var="GIT_BRANCH"}-#$BUILD_NUMBER
     - job-template:
         name: "{name}-build"
         description: Build the {name} project
         project-type: freestyle
         builders:
-          - ant-build:
+          - ant-build-macro:
               targets: "test"
+          - build-name-macro
     - job-template:
         name: "{name}-jjb"
         description: Build the {name} gradle build
         project-type: freestyle
         builders:
-          - ant-build:
+          - ant-build-macro:
               targets: "jjb"
+          - build-name-macro
                     
     - project:
         name: testAnt
@@ -235,16 +263,23 @@ Job Template, like macro but for entire job:
 
 ---
 
-# How to use JJB
+# End Game
 
-Commands
+Centralized configuration, simple job file
 
-* jenkins-jobs update jenkins/
-* jenkins-jobs test jenkins/ -o output
-* update Jenkins Job Builder itself
+    !yaml
+    - project:
+        name: map-widget
+        repo: map-widget
+        organization: DIGlobal
+        type: javascript
+        build-results-trigger: ""
+        jobs:
+          - "{name}-build"
+          - "{name}-pull-request"
+          - "{name}-jjb"
 
 ---
-
 
 # How DI uses Jenkins Job Builder
 
@@ -272,8 +307,9 @@ Commands
     * github url
     * creating github webhook
     * triggering main build from push
-    * triggering pull request build on poll
+    * triggering pull request build from push
     * put name of branch in build name
+    * hipchat notifications
 
 ---
 
@@ -293,7 +329,4 @@ Commands
 
 ---
 
-# Demo
-
----
 #![right](theme/images/thank_you-smaller.jpg)

@@ -82,7 +82,7 @@
             </aside>
             
             <aside class="page_number">
-              1/19
+              1/20
             </aside>
           </footer>
         </div>
@@ -128,7 +128,7 @@
             </aside>
             
             <aside class="page_number">
-              2/19
+              2/20
             </aside>
           </footer>
         </div>
@@ -172,7 +172,7 @@
             </aside>
             
             <aside class="page_number">
-              3/19
+              3/20
             </aside>
           </footer>
         </div>
@@ -220,7 +220,7 @@
             </aside>
             
             <aside class="page_number">
-              4/19
+              4/20
             </aside>
           </footer>
         </div>
@@ -269,7 +269,7 @@
             </aside>
             
             <aside class="page_number">
-              5/19
+              5/20
             </aside>
           </footer>
         </div>
@@ -319,7 +319,7 @@
             </aside>
             
             <aside class="page_number">
-              6/19
+              6/20
             </aside>
           </footer>
         </div>
@@ -360,7 +360,7 @@
             </aside>
             
             <aside class="page_number">
-              7/19
+              7/20
             </aside>
           </footer>
         </div>
@@ -399,7 +399,7 @@
             </aside>
             
             <aside class="page_number">
-              8/19
+              8/20
             </aside>
           </footer>
         </div>
@@ -424,14 +424,14 @@
 <li>multiple jobs per file </li>
 </ul>
 </li>
-<li>Test yaml created<ul>
-<li>can verify there are no syntax errors</li>
-<li>aids in adding new plugin</li>
-</ul>
-</li>
 <li>Templates for common jobs<ul>
 <li>like macros but for entire jobs</li>
 <li>multiple jobs per file</li>
+</ul>
+</li>
+<li>Test yaml created<ul>
+<li>can verify there are no syntax errors</li>
+<li>aids in adding new plugin</li>
 </ul>
 </li>
 </ul></section>
@@ -450,7 +450,7 @@
             </aside>
             
             <aside class="page_number">
-              9/19
+              9/20
             </aside>
           </footer>
         </div>
@@ -493,171 +493,7 @@
             </aside>
             
             <aside class="page_number">
-              10/19
-            </aside>
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide has_code">
-          <div class="inner">
-            
-            <header><h1>Job Configuration with JJB</h1></header>
-            
-            
-            <section><p>Job</p>
-<div class="highlight"><pre><span class="lineno"> 1</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">job</span>
-<span class="lineno"> 2</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">test-job</span>
-<span class="lineno"> 3</span>     <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">A test job of JJB</span>
-<span class="lineno"> 4</span>     <span class="l-Scalar-Plain">project-type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">freestyle</span>
-<span class="lineno"> 5</span>     <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
-<span class="lineno"> 6</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">github</span><span class="p-Indicator">:</span>
-<span class="lineno"> 7</span>           <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">https://git.drillinginfo.com/DIGlobal/map-widget/</span>
-<span class="lineno"> 8</span>   <span class="-Error">  </span><span class="l-Scalar-Plain">scm</span><span class="p-Indicator">:</span>
-<span class="lineno"> 9</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">git</span><span class="p-Indicator">:</span>
-<span class="lineno">10</span>           <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ssh://git@git.drillinginfo.com/DIGlobal/map-widget.git</span>
-<span class="lineno">11</span>           <span class="l-Scalar-Plain">branches</span><span class="p-Indicator">:</span>
-<span class="lineno">12</span>             <span class="p-Indicator">-</span> <span class="s">&quot;$default_branch&quot;</span>
-<span class="lineno">13</span>           <span class="l-Scalar-Plain">wipe-workspace</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
-<span class="lineno">14</span>           <span class="l-Scalar-Plain">browser</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">githubweb</span>
-<span class="lineno">15</span>           <span class="l-Scalar-Plain">browser-url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">https://git.drillinginfo.com/DIGlobal/map-widget/</span>
-<span class="lineno">16</span>           <span class="l-Scalar-Plain">git-tool</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">System Default Git</span>
-<span class="lineno">17</span>     <span class="l-Scalar-Plain">triggers</span><span class="p-Indicator">:</span>
-<span class="lineno">18</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">github</span>
-<span class="lineno">19</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">pollscm</span><span class="p-Indicator">:</span> <span class="s">&#39;&#39;</span>
-<span class="lineno">20</span>     <span class="l-Scalar-Plain">builders</span><span class="p-Indicator">:</span>
-<span class="lineno">21</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="p-Indicator">|</span>
-<span class="lineno">22</span>                <span class="no">echo Hello World</span>
-<span class="lineno">23</span>     <span class="l-Scalar-Plain">wrappers</span><span class="p-Indicator">:</span>
-<span class="lineno">24</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">build-name</span><span class="p-Indicator">:</span>
-<span class="lineno">25</span>           <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${ENV,GIT_BRANCH&quot;}-#$BUILD_NUMBER</span>
-</pre></div>
-</section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              11/19
-            </aside>
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide has_code">
-          <div class="inner">
-            
-            <header><h1>Macro Use with JJB</h1></header>
-            
-            
-            <section><p>Macro</p>
-<div class="highlight"><pre><span class="lineno"> 1</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">builder</span><span class="p-Indicator">:</span>
-<span class="lineno"> 2</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">builder-macro</span>
-<span class="lineno"> 3</span>     <span class="l-Scalar-Plain">builders</span><span class="p-Indicator">:</span>
-<span class="lineno"> 4</span>         <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="p-Indicator">|</span>
-<span class="lineno"> 5</span>                  <span class="no">echo &quot;You passed {task}&quot;</span>
-<span class="lineno"> 6</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">job</span>
-<span class="lineno"> 7</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">test-macroA</span>
-<span class="lineno"> 8</span>     <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">A test of echoing foo</span>
-<span class="lineno"> 9</span>     <span class="l-Scalar-Plain">project-type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">freestyle</span>
-<span class="lineno">10</span>     <span class="l-Scalar-Plain">builders</span><span class="p-Indicator">:</span>
-<span class="lineno">11</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">builder-macro</span><span class="p-Indicator">:</span>
-<span class="lineno">12</span>           <span class="l-Scalar-Plain">task</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">foo</span>
-<span class="lineno">13</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">job</span>
-<span class="lineno">14</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">test-macroB</span>
-<span class="lineno">15</span>     <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">A test of echoing bar</span>
-<span class="lineno">16</span>     <span class="l-Scalar-Plain">project-type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">freestyle</span>
-<span class="lineno">17</span>     <span class="l-Scalar-Plain">builders</span><span class="p-Indicator">:</span>
-<span class="lineno">18</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">builder-macro</span><span class="p-Indicator">:</span>
-<span class="lineno">19</span>           <span class="l-Scalar-Plain">task</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">bar</span>
-</pre></div>
-</section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              12/19
-            </aside>
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide has_code">
-          <div class="inner">
-            
-            <header><h1>Job Template Use with JJB</h1></header>
-            
-            
-            <section><p>Job Template, like macro but for entire job:</p>
-<div class="highlight"><pre><span class="lineno"> 1</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">builder</span><span class="p-Indicator">:</span>
-<span class="lineno"> 2</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ant-build</span>
-<span class="lineno"> 3</span>     <span class="l-Scalar-Plain">builders</span><span class="p-Indicator">:</span>
-<span class="lineno"> 4</span>         <span class="l-Scalar-Plain">ant</span><span class="p-Indicator">:</span> <span class="s">&quot;{targets}&quot;</span>
-<span class="lineno"> 5</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">job-template</span><span class="p-Indicator">:</span>
-<span class="lineno"> 6</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&quot;{name}-build&quot;</span>
-<span class="lineno"> 7</span>     <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Build the {name} project</span>
-<span class="lineno"> 8</span>     <span class="l-Scalar-Plain">project-type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">freestyle</span>
-<span class="lineno"> 9</span>     <span class="l-Scalar-Plain">builders</span><span class="p-Indicator">:</span>
-<span class="lineno">10</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">ant-build</span><span class="p-Indicator">:</span>
-<span class="lineno">11</span>           <span class="l-Scalar-Plain">targets</span><span class="p-Indicator">:</span> <span class="s">&quot;test&quot;</span>
-<span class="lineno">12</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">job-template</span><span class="p-Indicator">:</span>
-<span class="lineno">13</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&quot;{name}-jjb&quot;</span>
-<span class="lineno">14</span>     <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Build the {name} gradle build</span>
-<span class="lineno">15</span>     <span class="l-Scalar-Plain">project-type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">freestyle</span>
-<span class="lineno">16</span>     <span class="l-Scalar-Plain">builders</span><span class="p-Indicator">:</span>
-<span class="lineno">17</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">ant-build</span><span class="p-Indicator">:</span>
-<span class="lineno">18</span>           <span class="l-Scalar-Plain">targets</span><span class="p-Indicator">:</span> <span class="s">&quot;jjb&quot;</span>
-<span class="lineno">19</span> 
-<span class="lineno">20</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">project</span><span class="p-Indicator">:</span>
-<span class="lineno">21</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">testAnt</span>
-<span class="lineno">22</span>     <span class="l-Scalar-Plain">jobs</span><span class="p-Indicator">:</span>
-<span class="lineno">23</span>       <span class="p-Indicator">-</span> <span class="s">&#39;{name}-build&#39;</span>
-<span class="lineno">24</span>       <span class="p-Indicator">-</span> <span class="s">&#39;{name}-jjb&#39;</span>
-</pre></div>
-</section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              13/19
+              10/20
             </aside>
           </footer>
         </div>
@@ -692,7 +528,230 @@
             </aside>
             
             <aside class="page_number">
-              14/19
+              11/20
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Job Configuration with JJB</h1></header>
+            
+            
+            <section><p>Job</p>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">job</span>
+<span class="lineno"> 2</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">test-job</span>
+<span class="lineno"> 3</span>     <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">A test job of JJB</span>
+<span class="lineno"> 4</span>     <span class="l-Scalar-Plain">project-type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">freestyle</span>
+<span class="lineno"> 5</span>     <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+<span class="lineno"> 6</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">github</span><span class="p-Indicator">:</span>
+<span class="lineno"> 7</span>           <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">https://git.drillinginfo.com/DIGlobal/map-widget/</span>
+<span class="lineno"> 8</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">inject</span><span class="p-Indicator">:</span>
+<span class="lineno"> 9</span>           <span class="l-Scalar-Plain">script-content</span><span class="p-Indicator">:</span> <span class="p-Indicator">|</span>
+<span class="lineno">10</span>                       <span class="no">#!/bin/bash -ex</span>
+<span class="lineno">11</span>                       <span class="no">{{ rm -rf /jenkins/workspace/$JOB_NAME || true; }}</span>
+<span class="lineno">12</span>                       <span class="no">mkdir -p /jenkins/workspace/$JOB_NAME</span>
+<span class="lineno">13</span>                       <span class="no">echo default_branch=`curl -s -k -H &quot;Authorization: token [token]&quot; &quot;https://[github_url]/repos/{org}/{repo}&quot; | grep -om 1 -e default_branch\\&quot;:\\ \\&quot;[A-Za-z0-9\._-]\\\+ | sed s/default_branch\\&quot;:\\ \\&quot;//g` &gt; /jenkins/workspace/$JOB_NAME/properties.prop</span>
+<span class="lineno">14</span>           <span class="l-Scalar-Plain">properties-file</span><span class="p-Indicator">:</span> <span class="s">&quot;/jenkins/workspace/$JOB_NAME/properties.prop&quot;</span>
+<span class="lineno">15</span>   <span class="-Error">  </span><span class="l-Scalar-Plain">scm</span><span class="p-Indicator">:</span>
+<span class="lineno">16</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">git</span><span class="p-Indicator">:</span>
+<span class="lineno">17</span>           <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ssh://[github_url]/DIGlobal/map-widget.git</span>
+<span class="lineno">18</span>           <span class="l-Scalar-Plain">branches</span><span class="p-Indicator">:</span>
+<span class="lineno">19</span>             <span class="p-Indicator">-</span> <span class="s">&quot;$default_branch&quot;</span>
+<span class="lineno">20</span>           <span class="l-Scalar-Plain">wipe-workspace</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+<span class="lineno">21</span>           <span class="l-Scalar-Plain">browser</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">githubweb</span>
+<span class="lineno">22</span>           <span class="l-Scalar-Plain">browser-url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">https://[github_url]/DIGlobal/map-widget/</span>
+<span class="lineno">23</span>           <span class="l-Scalar-Plain">git-tool</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">System Default Git</span>
+<span class="lineno">24</span>     <span class="l-Scalar-Plain">triggers</span><span class="p-Indicator">:</span>
+<span class="lineno">25</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">github</span>
+<span class="lineno">26</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">pollscm</span><span class="p-Indicator">:</span> <span class="s">&#39;&#39;</span>
+<span class="lineno">27</span>     <span class="l-Scalar-Plain">builders</span><span class="p-Indicator">:</span>
+<span class="lineno">28</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">shell</span><span class="p-Indicator">:</span> <span class="p-Indicator">|</span>
+<span class="lineno">29</span>                <span class="no">echo Hello World</span>
+<span class="lineno">30</span>     <span class="l-Scalar-Plain">wrappers</span><span class="p-Indicator">:</span>
+<span class="lineno">31</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">build-name</span><span class="p-Indicator">:</span>
+<span class="lineno">32</span>           <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${ENV,GIT_BRANCH&quot;}-#$BUILD_NUMBER</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              12/20
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Macro Use with JJB</h1></header>
+            
+            
+            <section><p>Macro</p>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">builder</span><span class="p-Indicator">:</span>
+<span class="lineno"> 2</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">builder-macro</span>
+<span class="lineno"> 3</span>     <span class="l-Scalar-Plain">builders</span><span class="p-Indicator">:</span>
+<span class="lineno"> 4</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">ant</span><span class="p-Indicator">:</span>
+<span class="lineno"> 5</span>           <span class="l-Scalar-Plain">targets</span><span class="p-Indicator">:</span> <span class="s">&quot;{task}&quot;</span>
+<span class="lineno"> 6</span>           <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+<span class="lineno"> 7</span>              <span class="l-Scalar-Plain">failonerror</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
+<span class="lineno"> 8</span>           <span class="l-Scalar-Plain">ant-name</span><span class="p-Indicator">:</span> <span class="s">&quot;Ant</span><span class="nv"> </span><span class="s">1.6&quot;</span> 
+<span class="lineno"> 9</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">job</span>
+<span class="lineno">10</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">test-macroA</span>
+<span class="lineno">11</span>     <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Run the integration tests</span>
+<span class="lineno">12</span>     <span class="l-Scalar-Plain">project-type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">freestyle</span>
+<span class="lineno">13</span>     <span class="l-Scalar-Plain">builders</span><span class="p-Indicator">:</span>
+<span class="lineno">14</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">builder-macro</span><span class="p-Indicator">:</span>
+<span class="lineno">15</span>           <span class="l-Scalar-Plain">task</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">testi</span>
+<span class="lineno">16</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">job</span>
+<span class="lineno">17</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">test-macroB</span>
+<span class="lineno">18</span>     <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Run the unit tests</span>
+<span class="lineno">19</span>     <span class="l-Scalar-Plain">project-type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">freestyle</span>
+<span class="lineno">20</span>     <span class="l-Scalar-Plain">builders</span><span class="p-Indicator">:</span>
+<span class="lineno">21</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">builder-macro</span><span class="p-Indicator">:</span>
+<span class="lineno">22</span>           <span class="l-Scalar-Plain">task</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">testu</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              13/20
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Job Template Use with JJB</h1></header>
+            
+            
+            <section><p>Job Template, like macro but for entire job:</p>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">builder</span><span class="p-Indicator">:</span>
+<span class="lineno"> 2</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ant-build-macro</span>
+<span class="lineno"> 3</span>     <span class="l-Scalar-Plain">builders</span><span class="p-Indicator">:</span>
+<span class="lineno"> 4</span>       <span class="p-Indicator">-</span>  <span class="l-Scalar-Plain">ant</span><span class="p-Indicator">:</span> <span class="s">&quot;{targets}&quot;</span>
+<span class="lineno"> 5</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">wrapper</span><span class="p-Indicator">:</span>
+<span class="lineno"> 6</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">build-name-macro</span>
+<span class="lineno"> 7</span>     <span class="l-Scalar-Plain">wrappers</span><span class="p-Indicator">:</span>
+<span class="lineno"> 8</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">build-name</span><span class="p-Indicator">:</span>
+<span class="lineno"> 9</span>           <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${ENV,var=&quot;GIT_BRANCH&quot;}-#$BUILD_NUMBER</span>
+<span class="lineno">10</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">job-template</span><span class="p-Indicator">:</span>
+<span class="lineno">11</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&quot;{name}-build&quot;</span>
+<span class="lineno">12</span>     <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Build the {name} project</span>
+<span class="lineno">13</span>     <span class="l-Scalar-Plain">project-type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">freestyle</span>
+<span class="lineno">14</span>     <span class="l-Scalar-Plain">builders</span><span class="p-Indicator">:</span>
+<span class="lineno">15</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">ant-build-macro</span><span class="p-Indicator">:</span>
+<span class="lineno">16</span>           <span class="l-Scalar-Plain">targets</span><span class="p-Indicator">:</span> <span class="s">&quot;test&quot;</span>
+<span class="lineno">17</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">build-name-macro</span>
+<span class="lineno">18</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">job-template</span><span class="p-Indicator">:</span>
+<span class="lineno">19</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&quot;{name}-jjb&quot;</span>
+<span class="lineno">20</span>     <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Build the {name} gradle build</span>
+<span class="lineno">21</span>     <span class="l-Scalar-Plain">project-type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">freestyle</span>
+<span class="lineno">22</span>     <span class="l-Scalar-Plain">builders</span><span class="p-Indicator">:</span>
+<span class="lineno">23</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">ant-build-macro</span><span class="p-Indicator">:</span>
+<span class="lineno">24</span>           <span class="l-Scalar-Plain">targets</span><span class="p-Indicator">:</span> <span class="s">&quot;jjb&quot;</span>
+<span class="lineno">25</span>       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">build-name-macro</span>
+<span class="lineno">26</span> 
+<span class="lineno">27</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">project</span><span class="p-Indicator">:</span>
+<span class="lineno">28</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">testAnt</span>
+<span class="lineno">29</span>     <span class="l-Scalar-Plain">jobs</span><span class="p-Indicator">:</span>
+<span class="lineno">30</span>       <span class="p-Indicator">-</span> <span class="s">&#39;{name}-build&#39;</span>
+<span class="lineno">31</span>       <span class="p-Indicator">-</span> <span class="s">&#39;{name}-jjb&#39;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              14/20
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>End Game</h1></header>
+            
+            
+            <section><p>Centralized configuration, simple job file</p>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">project</span><span class="p-Indicator">:</span>
+<span class="lineno"> 2</span>     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">map-widget</span>
+<span class="lineno"> 3</span>     <span class="l-Scalar-Plain">repo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">map-widget</span>
+<span class="lineno"> 4</span>     <span class="l-Scalar-Plain">organization</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">DIGlobal</span>
+<span class="lineno"> 5</span>     <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">javascript</span>
+<span class="lineno"> 6</span>     <span class="l-Scalar-Plain">build-results-trigger</span><span class="p-Indicator">:</span> <span class="s">&quot;&quot;</span>
+<span class="lineno"> 7</span>     <span class="l-Scalar-Plain">jobs</span><span class="p-Indicator">:</span>
+<span class="lineno"> 8</span>       <span class="p-Indicator">-</span> <span class="s">&quot;{name}-build&quot;</span>
+<span class="lineno"> 9</span>       <span class="p-Indicator">-</span> <span class="s">&quot;{name}-pull-request&quot;</span>
+<span class="lineno">10</span>       <span class="p-Indicator">-</span> <span class="s">&quot;{name}-jjb&quot;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              15/20
             </aside>
           </footer>
         </div>
@@ -739,7 +798,7 @@
             </aside>
             
             <aside class="page_number">
-              15/19
+              16/20
             </aside>
           </footer>
         </div>
@@ -763,8 +822,9 @@
 <li>github url</li>
 <li>creating github webhook</li>
 <li>triggering main build from push</li>
-<li>triggering pull request build on poll</li>
+<li>triggering pull request build from push</li>
 <li>put name of branch in build name</li>
+<li>hipchat notifications</li>
 </ul>
 </li>
 </ul></section>
@@ -783,7 +843,7 @@
             </aside>
             
             <aside class="page_number">
-              16/19
+              17/20
             </aside>
           </footer>
         </div>
@@ -833,7 +893,7 @@
             </aside>
             
             <aside class="page_number">
-              17/19
+              18/20
             </aside>
           </footer>
         </div>
@@ -861,7 +921,7 @@
             </aside>
             
             <aside class="page_number">
-              18/19
+              19/20
             </aside>
           </footer>
         </div>
@@ -889,7 +949,7 @@
             </aside>
             
             <aside class="page_number">
-              19/19
+              20/20
             </aside>
           </footer>
         </div>
@@ -964,37 +1024,37 @@
       
       
       <tr id="toc-row-11">
-        <th><a href="#slide11">Job Configuration with JJB</a></th>
+        <th><a href="#slide11">How to use JJB</a></th>
         <td><a href="#slide11">11</a></td>
       </tr>
       
       
       <tr id="toc-row-12">
-        <th><a href="#slide12">Macro Use with JJB</a></th>
+        <th><a href="#slide12">Job Configuration with JJB</a></th>
         <td><a href="#slide12">12</a></td>
       </tr>
       
       
       <tr id="toc-row-13">
-        <th><a href="#slide13">Job Template Use with JJB</a></th>
+        <th><a href="#slide13">Macro Use with JJB</a></th>
         <td><a href="#slide13">13</a></td>
       </tr>
       
       
       <tr id="toc-row-14">
-        <th><a href="#slide14">How to use JJB</a></th>
+        <th><a href="#slide14">Job Template Use with JJB</a></th>
         <td><a href="#slide14">14</a></td>
       </tr>
       
       
       <tr id="toc-row-15">
-        <th><a href="#slide15">How DI uses Jenkins Job Builder</a></th>
+        <th><a href="#slide15">End Game</a></th>
         <td><a href="#slide15">15</a></td>
       </tr>
       
       
       <tr id="toc-row-16">
-        <th><a href="#slide16">CI Monkey</a></th>
+        <th><a href="#slide16">How DI uses Jenkins Job Builder</a></th>
         <td><a href="#slide16">16</a></td>
       </tr>
       
@@ -1006,14 +1066,20 @@
       
       
       <tr id="toc-row-18">
-        <th><a href="#slide18">Demo</a></th>
+        <th><a href="#slide18">CI Monkey</a></th>
         <td><a href="#slide18">18</a></td>
       </tr>
       
       
       <tr id="toc-row-19">
-        <th><a href="#slide19"><img alt="right" src="theme/images/thank_you-smaller.jpg" /></a></th>
+        <th><a href="#slide19">Demo</a></th>
         <td><a href="#slide19">19</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-20">
+        <th><a href="#slide20"><img alt="right" src="theme/images/thank_you-smaller.jpg" /></a></th>
+        <td><a href="#slide20">20</a></td>
       </tr>
       
       
