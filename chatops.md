@@ -1,6 +1,9 @@
 Chat Ops
 ---
 
+References
+* (?) - https://speakerdeck.com/jnewland/chatops-at-github
+
 What is it?
 * interact with systems in chat
 * hubot
@@ -9,6 +12,16 @@ What is it?
 Why use it?
 * One place to control all systems
 * Alerts cannot be ignored but can be bypassed with ease
+* Everyone can see what is happening
+* Everyone can see what is happening, on their first day (?)
+* By placing tools directly in the middle of the conversation, everyone is pairing all the time (?)
+* Teaching by doing (?)
+* This was always my main motivation with hubot, teaching by making things visible.  Its an extremely powerful teaching technique (?)
+* hide the ugly (?)
+  * put ugly nagios ui behind shiny chatting
+* Interact on mobile (?)
+  * can check state of systems on the go
+  * possibly fix things remotely
 
 Bots
 * hubot
@@ -41,3 +54,11 @@ What we have
 * fun
   * image me
   * lunch
+
+Our Process
+* checkin to master causes cookbook to be uploaded and chef converged
+
+Future
+* deploys
+* redis for a persistent brain
+* gate deploys with interactions with redis brain
