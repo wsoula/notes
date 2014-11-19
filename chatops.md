@@ -41,8 +41,9 @@ Other uses
   * keep chat rooms in forefront of peoples minds, thus uniting geographically dispersed teams
     * pop notifications
     * interesting info
+* information delivery
 
-What we have
+What we have (Sparky)
 * prod traffic
   * running count of unique visits a day
 * automated test reports
@@ -51,6 +52,9 @@ What we have
   * build failures
   * releases
   * hipchat alert for long running job completion
+* dynamic information
+  * when is next release date
+  * how to release code (gets default branch)
 * fun
   * image me
   * lunch
@@ -59,6 +63,6 @@ Our Process
 * checkin to master causes cookbook to be uploaded and chef converged
 
 Future
-* deploys
+* deploys (sparky switch production)
 * redis for a persistent brain
 * gate deploys with interactions with redis brain
