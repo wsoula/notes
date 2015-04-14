@@ -12,52 +12,75 @@
 # What is Chat OPs
 
 * Information in the middle of the conversation
+
+
 * Brings teams together
-* Teaches how to do things by showing instead of pointing
+
+
+* Teaches how to do things by showing the process
 
 ---
 
-# Issues
+# Issues @ DI
 
 * Documentation
     * How do I do things?
-    * How do I teach others?  (Information in middle of conversation)
-* Interact with other systems
-    * rally, piwik, etc
-    * load data, get help from cm
+    * How do I teach others what I learned?
+* Data in several disparate systems
+    * rally
+    * piwik
+    * doc wikis
+    * etc
 * Fun
-    * animate me
-    * puppy bomb
+    * chat rooms are empty
+    * conversation is lacking
 
 ---
 
-# DI Solutions
+# DI Solutions (Sparky)
 
-* Chat Ops
+* CM Documentation Solution
     * put how to do things in the middle of the converstation
-* Put piwik user stats in chat room, cm me, load pden
-    * do all the things in chat
-* Random image
+    * load data, get help from cm
+    * CM documentation repo/process
+* Put information in the middle of the conversation
+    * Piwik Information
+    * Stale Nodes
+    * how to get ips or other chef attributes
+* Silly hubot commands
     * chon som
     * heroku lunch menu
+    * image me/animate me
 
 ---
 
 # How to contribute
 
-* Show github cookbook repo and structure
+* Cookbook repo contains all of hubot with the files neatly contained
+
+
 * Coffeescript and Ruby
+
+
 * Cron for periodic updates
-
----
-
-# What We Have at DI
-
-* Live Demo of di-specific commands
 
 ---
 
 # Future
 
 * redis brain
+
+
 * whatever YOU want
+
+
+* hipchat bots?
+
+
+* slackbot?
+
+---
+
+# What We Have at DI
+
+* Live Demo of di-specific commands
