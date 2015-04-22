@@ -18,23 +18,18 @@ References
 * See how DI uses chat ops everyday
 * How DI extends hubot and deploys it
 * Future Plans at DI for chat ops
-
 ---
 What is Chat-Ops?
 ---
-
 * interact with systems in chat
-* hubot
-* jenkins bot
-* github sending data
-
+* information in the middle of the conversation
+* teaching by doing
 ---
 Why Use Chat-Ops?
 ---
-
 * One place to control all systems
 * Alerts cannot be ignored but can be bypassed with ease
-* Github presentation
+* Github presentation (FIXME)
     * Everyone can see what is happening
     * Everyone can see what is happening, on their first day
     * By placing tools directly in the middle of the conversation, everyone is pairing all the time
@@ -42,19 +37,15 @@ Why Use Chat-Ops?
     * This was always my main motivation with hubot, teaching by making things visible.  Its an extremely powerful teaching technique
     * hide the ugly
         * put ugly nagios ui behind shiny chatting
-
 ---
 Why Use Chat-Ops?
 ---
-
 * Interact on mobile
     * can check state of systems on the go
     * possibly fix things remotely
-
 ---
 How chat ops makes teams more agile
 ---
-
 * All information gathered from systems in the agile process
     * rally/kanbanery/jira
     * jenkins/travis/teamcity
@@ -66,7 +57,6 @@ How chat ops makes teams more agile
 * increase throughput of work, no waiting
     * instantly see work ready for review
     * catch mistakes earlier
-
 ---
 Technology Required
 ---
@@ -80,7 +70,6 @@ Technology Required
     * services
         * github
         * datadog
-
 ---
 Technology Required
 ---
@@ -96,7 +85,6 @@ Other uses
     * apis written for bot use
 * Drive dev engagement with prod
 * Possible entry-way to dev ops
-
 ---
 Other Uses
 ---
@@ -108,7 +96,6 @@ Other Uses
       * pop notifications
       * interesting info
 * information delivery
-
 ---
 What DI Has (Sparky)
 ---
@@ -123,20 +110,17 @@ What DI Has (Sparky)
 * dynamic information
     * when is next release date
     * how to release code (gets default branch)
-
 ---
 What DI Has (Sparky)
 ---
 * fun
     * image me
     * lunch
-
 ---
 Our Process
 ---
 * open pull request with changes to hubot
 * checkin to master causes cookbook to be uploaded and chef converged
-
 ---
 Future for DI
 ---
