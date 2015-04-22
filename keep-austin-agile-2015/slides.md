@@ -15,9 +15,21 @@ Chat Ops
 References
 * (?) - https://speakerdeck.com/jnewland/chatops-at-github
 
+* What is Chat-Ops and how and why to use it
 * See how DI uses chat ops everyday
 * How DI extends hubot and deploys it
 * Future Plans at DI for chat ops
+
+---
+Sparky
+---
+<img src="hip-chat-screenshot.png" alt="Sparky" style="height: 500px;"/>
+
+---
+Sparky
+---
+<img src="hip-chat-screenshot2.png" alt="Sparky" style="height: 500px;"/>
+
 ---
 What is Chat-Ops?
 ---
@@ -40,6 +52,8 @@ Why Use Chat-Ops?
 ---
 Why Use Chat-Ops?
 ---
+<br><br><br>
+
 * Interact on mobile
     * can check state of systems on the go
     * possibly fix things remotely
