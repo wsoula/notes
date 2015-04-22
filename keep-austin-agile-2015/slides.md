@@ -16,8 +16,14 @@ References
 * (?) - https://speakerdeck.com/jnewland/chatops-at-github
 
 * What is Chat-Ops and how and why to use it
+<br><br>
+
 * See how DI uses chat ops everyday
+<br><br>
+
 * How DI extends hubot and deploys it
+<br><br>
+
 * Future Plans at DI for chat ops
 
 ---
@@ -33,9 +39,16 @@ Sparky
 ---
 What is Chat-Ops?
 ---
-* interact with systems in chat
-* information in the middle of the conversation
-* teaching by doing
+<br><br>
+
+* Interact with systems in chat
+<br><br>
+
+* Information in the middle of the conversation
+<br><br>
+
+* Teaching by doing
+
 ---
 Why Use Chat-Ops?
 ---
