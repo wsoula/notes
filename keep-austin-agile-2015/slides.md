@@ -115,6 +115,8 @@ Technology Required
 ---
 Other uses
 ---
+<br><br>
+
 * Drive code ownership
     * apis written for bot use
 * Drive dev engagement with prod
@@ -154,7 +156,7 @@ What DI Has (Sparky)
     * gets docs from github
     * same source as the web links
 ---
-What DI Has (Sparky) (Add di_aws and change chon som in hubot)
+What DI Has (Sparky)
 ---
 
     !text
@@ -170,21 +172,26 @@ What DI Has (Sparky) (Add di_aws and change chon som in hubot)
     sparky cleanup newrelic (di-specific)
     sparky cleanup the <app|api> stack numbered <jira ticket> (di-specific)
     sparky cm me <name of card you want created on cm board> (di-specific)
+    sparky create deploy ticket <app|api> for <YYYY/MM/DD> date and <YYYY/MM/DD> preprod date and <M.M.P> environment cookbook version (di-specific)
     sparky load pdendetails using <ip> (di-specific)
     sparky load pdenheaders using <ip> (di-specific)
+    sparky load wspwells using <ip> (di-specific)
+    sparky status - Gets the status of sparky (di-specific)
     tell me about 2.0 - Interact with piwik (di-specific)
     tell me about the (dev|test-app|test-api) environment - Get list of stale nodes in environment (di-specific)
+    tell me about the <region> region in aws - Tells you about the specified region in the old aws account (di-specific)
     test the <test|preprod|prod> api stack (di-specific)
+    what are the DI urls (di-specific)
     what is cm doing (di-specific)
     what is in the next release (walk the project boards) (di-specific)
     what is in the upcoming release (di-specific)
-    what is the (.*) url (di-specific)
     what is the <attribute> of the <role> role in the <env> environment (di-specific)
     what is the aws url (di-specific)
     what is the ip of the <role> role in the <env> environment (di-specific)
     what is the next release date (di-specific)
     what is the release process (di-specific)
-    what is the chon som menu (di-specific)
+    what nodes are in the <prod app|prod api|preprod app|preprod api|test app|test api|[load balancer name] load balancer (region) - Region is not required if you did not specify a specific load balancer (di-specific)
+    what's the chon som menu (di-specific)
     where is the marvel dashboard (di-specific)
 
 ---
