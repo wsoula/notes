@@ -54,7 +54,7 @@ Why Use Chat-Ops?
 ---
 * One place to control all systems
 * Alerts cannot be ignored but can be bypassed with ease
-* Github presentation (FIXME)
+* Github presentation
     * Everyone can see what is happening
     * Everyone can see what is happening, on their first day
     * By placing tools directly in the middle of the conversation, everyone is pairing all the time
@@ -94,17 +94,24 @@ Technology Required
     * jenkins bot
         * runs in jenkins
         * few, but important, use cases
-    * services
-        * github
-        * datadog
+    * slack
+        * slash commands
+        * slackbot
+    * hipchat
+        * hipchat integrations
 ---
 Technology Required
 ---
+* Webhooks
+    * github
+    * datadog
+    * newrelic
+    * uptime
+    * jenkins
 * Chat server/client and room
     * hipchat
     * slack
     * jabber
-
 ---
 Other uses
 ---
@@ -143,9 +150,48 @@ What DI Has (Sparky)
 * fun
     * image me
     * lunch
+* documentation
+    * gets docs from github
+    * same source as the web links
+---
+What DI Has (Sparky) (Add di_aws and change chon som in hubot)
+---
+
+    !text
+    give me a cloudformation example (di-specific)
+    give me some griddle examples (di-specific)
+    how do I delete a jenkins job (di-specific)
+    how do I delete the EIS db (di-specific)
+    how do I get my <app|api> code into production (di-specific)
+    how do I get my code into production (di-specific)
+    how do I load the phoenix data (di-specific)
+    how do I rsync static layers (di-specific)
+    sparky build preprod (di-specific)
+    sparky cleanup newrelic (di-specific)
+    sparky cleanup the <app|api> stack numbered <jira ticket> (di-specific)
+    sparky cm me <name of card you want created on cm board> (di-specific)
+    sparky load pdendetails using <ip> (di-specific)
+    sparky load pdenheaders using <ip> (di-specific)
+    tell me about 2.0 - Interact with piwik (di-specific)
+    tell me about the (dev|test-app|test-api) environment - Get list of stale nodes in environment (di-specific)
+    test the <test|preprod|prod> api stack (di-specific)
+    what is cm doing (di-specific)
+    what is in the next release (walk the project boards) (di-specific)
+    what is in the upcoming release (di-specific)
+    what is the (.*) url (di-specific)
+    what is the <attribute> of the <role> role in the <env> environment (di-specific)
+    what is the aws url (di-specific)
+    what is the ip of the <role> role in the <env> environment (di-specific)
+    what is the next release date (di-specific)
+    what is the release process (di-specific)
+    what is the chon som menu (di-specific)
+    where is the marvel dashboard (di-specific)
+
 ---
 Our Process
 ---
+* most scripts written in coffeescript
+* can fall back to bash or ruby etc
 * open pull request with changes to hubot
 * checkin to master causes cookbook to be uploaded and chef converged
 ---
