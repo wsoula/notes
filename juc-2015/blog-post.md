@@ -2,7 +2,7 @@ Chat Ops and Jenkins
 ---
 I am very excited to be attending the Jenkins User Conference on the East Coast
 this year.  This will be my third presentaiton at a JUC and fourth time to
-attend, but all that was done at JUC West.  I have learned about a lot of cool
+attend, but my first on the East Coast.  I have learned about a lot of cool
 stuff in the past, which is why I started presenting, to tell people about the
 cool stuff we are doing at Drilling Info.  One of the cooler things we have
 implemented in the last year is Chat Ops and our bot Sparky.  It started as
