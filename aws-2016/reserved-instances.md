@@ -17,3 +17,5 @@ AWS Reserved Instances
 * have to re-amoritize after making modifications
 * stay on top of expirations
 * jr@cloudability.com
+* start tracking your reserved coverage rate and unused reserved instance hours closely
+* create RI Czar and then schedule ongoing reserved instance management tasks to ensure they happen
