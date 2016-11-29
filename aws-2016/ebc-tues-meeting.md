@@ -5,3 +5,4 @@ AWS DB Solutions
 * Block Storage - EBS General Purpose SSD, Provisioned IOPS SSD, Throughput Optimized HDD and Cold HDD
 * NoSQL DB - DynamoDB
 * SQL Database - Aurora, MySQL, PostgresSQL, Oracle, SQL Server
+* Where does RedShift fit?
