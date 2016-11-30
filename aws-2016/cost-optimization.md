@@ -48,3 +48,4 @@ Cost Optimization at Scale
   * bring in right tools
   * use metrics to reinforce behavior
   * use partners to accelerate
+* aws.amazon.com/(cost-optimization?)  ask marisa for white paper link
