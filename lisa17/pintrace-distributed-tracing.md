@@ -16,3 +16,12 @@ Pintrace - Distributed Tracing
   * Identify architectural optimizations
   * latency pipeline
   * inter AZ traffic analysis
+* Lessons Learned
+  * user awareness and education are very important to making tracing successful
+  * being with the end in mind
+  * trace most valuable path in the app
+  * distributed tracing landscape is confusing
+  * quality of traces is more important than quantity
+* tinyurl.com/pintrace-achitecture
+* tinyurl.com/pintrace-applications
+* tinyurl.com/pintrace-analysis
